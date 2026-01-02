@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  >
 
   <link rel="stylesheet" href="style.css">
 </head>
@@ -30,12 +32,34 @@
 
   <!-- SOCIAL -->
   <div class="social">
-    <a class="github" href="https://github.com/omk4r72" target="_blank"><i class="fab fa-github"></i></a>
-    <a class="linkedin" href="https://linkedin.com/in/omkar-chavhan-33697a312" target="_blank"><i class="fab fa-linkedin"></i></a>
-    <a class="x" href="https://x.com/omkarchavhan72" target="_blank"><i class="fab fa-x-twitter"></i></a>
-    <a class="leetcode" href="https://leetcode.com/omk4r72/" target="_blank"><i class="fas fa-code"></i></a>
-    <a class="mail" href="mailto:chavhanomkar702@gmail.com"><i class="fas fa-envelope"></i></a>
+    <a class="github" href="https://github.com/omk4r72" target="_blank" aria-label="GitHub">
+      <i class="fab fa-github"></i>
+    </a>
+
+    <a class="linkedin" href="https://linkedin.com/in/omkar-chavhan-33697a312" target="_blank" aria-label="LinkedIn">
+      <i class="fab fa-linkedin"></i>
+    </a>
+
+    <a class="x" href="https://x.com/omkarchavhan72" target="_blank" aria-label="X">
+      <i class="fab fa-x-twitter"></i>
+    </a>
+
+    <!-- INSTAGRAM -->
+    <a class="instagram" href="https://www.instagram.com/omk4r72/" target="_blank" aria-label="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a class="leetcode" href="https://leetcode.com/omk4r72/" target="_blank" aria-label="LeetCode">
+      <i class="fas fa-code"></i>
+    </a>
+
+    <a class="mail" href="mailto:chavhanomkar702@gmail.com" aria-label="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
   </div>
+
+  <!-- BADGES (HTB + TRYHACKME) -->
+  <div id="badges"></div>
 
   <!-- TERMINAL -->
   <div class="terminal">
@@ -47,7 +71,11 @@
 
 </div>
 
+<!-- SCRIPTS -->
 <script src="blockchain.js"></script>
 <script src="terminal.js"></script>
+<script src="badges.js"></script>
+<script src="eye-behavior.js"></script>
+
 </body>
 </html>
