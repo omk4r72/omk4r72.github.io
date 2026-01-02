@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", monospace;
+}
+
+body {
+  background: #050505;
+  color: #e0e0e0;
+  overflow: hidden;
+}
+
+canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+/* LAYOUT */
+.container {
+  position: relative;
+  z-index: 2;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+}
+
+/* =========================
+   REAL EYES (IMAGE BASED)
+   ========================= */
+
+.eye-container {
+  position: relative;
+  width: 260px;     /* adjust if needed */
+  height: 90px;
+  margin-bottom: 22px;
+  overflow: hidden;
+}
+
+.eye-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* eyelids */
+.eyelid {
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: #050505;
+  left: 0;
+  animation: blink 6s infinite ease-in-out;
+  z-index: 2;
+}
+
+.eyelid.top { top: 0; transform-origin: top; }
+.eyelid.bottom { bottom: 0; transform-origin: bottom; }
+
+/* smooth cinematic blink */
+@keyframes blink {
+  0%, 92%, 100% { transform: scaleY(0); }
+  95% { transform: scaleY(1); }
+}
+
+/* TEXT */
+.name {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.role {
+  font-size: 14px;
+  color: #9e9e9e;
+  margin-bottom: 18px;
+}
+
+/* SOCIAL ICONS */
+.social a {
+  margin: 6px;
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+
+.social a:hover { transform: scale(1.15); }
+
+.github { color: #ffffff; }
+.linkedin { color: #0A66C2; }
+.x { color: #ffffff; }
+.leetcode { color: #FFA116; }
+.mail { color: #EA4335; }
+
+/* TERMINAL */
+.terminal {
+  margin-top: 22px;
+  width: 420px;
+  background: #0a0a0a;
+  border: 1px solid #1c1c1c;
+  padding: 12px;
+  font-size: 12px;
+  text-align: left;
+}
+
+#output {
+  min-height: 110px;
+  color: #bdbdbd;
+}
+
+#command {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00e5ff;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 24px;
+  font-size: 12px;
+  color: #7a7a7a;
+}
