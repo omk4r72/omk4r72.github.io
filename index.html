@@ -7,23 +7,33 @@
 
   <!-- Font Awesome -->
   <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="loading">
+
+<!-- ================= BOOT INTRO ================= -->
+<div id="boot-screen">
+  <div class="boot-text">
+    <p>[ SYSTEM BOOTING ]</p>
+    <p>[ INITIALIZING SECURITY MODULES ]</p>
+    <p>[ LOADING INTERFACE ]</p>
+    <p class="ok">[ ACCESS GRANTED ]</p>
+  </div>
+</div>
 
 <canvas id="chain"></canvas>
 
-<div class="container">
+<!-- ================= EYES BANNER ================= -->
+<div class="eye-banner">
+  <img src="eyes.jpg" alt="Eyes Banner">
+  <div class="eyelid top"></div>
+  <div class="eyelid bottom"></div>
+</div>
 
-  <!-- REAL EYES (IMAGE BASED) -->
-  <div class="eye-container">
-    <img src="eyes.jpg" alt="eyes" class="eye-image">
-    <div class="eyelid top"></div>
-    <div class="eyelid bottom"></div>
-  </div>
+<div class="container">
 
   <h1 class="name">Omkar Chavhan</h1>
   <h2 class="role">Cybersecurity Researcher & Ethical Hacker</h2>
@@ -33,6 +43,7 @@
     <a class="github" href="https://github.com/omk4r72" target="_blank"><i class="fab fa-github"></i></a>
     <a class="linkedin" href="https://linkedin.com/in/omkar-chavhan-33697a312" target="_blank"><i class="fab fa-linkedin"></i></a>
     <a class="x" href="https://x.com/omkarchavhan72" target="_blank"><i class="fab fa-x-twitter"></i></a>
+    <a class="instagram" href="https://www.instagram.com/omk4r72/" target="_blank"><i class="fab fa-instagram"></i></a>
     <a class="leetcode" href="https://leetcode.com/omk4r72/" target="_blank"><i class="fas fa-code"></i></a>
     <a class="mail" href="mailto:chavhanomkar702@gmail.com"><i class="fas fa-envelope"></i></a>
   </div>
@@ -43,11 +54,29 @@
     <input id="command" placeholder="type 'help' and press enter">
   </div>
 
-  <p class="footer">Cybersecurity • Research • Precision</p>
+  <!-- TRYHACKME BADGE -->
+  <div class="thm-badge">
+    <iframe
+      src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=6579673"
+      loading="lazy"
+      style="border:none;">
+    </iframe>
+  </div>
 
+  <p class="footer">Cybersecurity • Research • Precision</p>
 </div>
 
-<script src="blockchain.js"></script>
 <script src="terminal.js"></script>
+<script src="blockchain.js"></script>
+
+
+<script>
+  setTimeout(() => {
+    document.getElementById("boot-screen").style.display = "none";
+    document.body.classList.remove("loading");
+  }, 3300);
+</script>
+
+
 </body>
 </html>
