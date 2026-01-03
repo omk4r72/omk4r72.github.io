@@ -8,79 +8,116 @@
 body {
   background: #050505;
   color: #e0e0e0;
+  overflow-x: hidden;
+}
+
+body.loading {
   overflow: hidden;
 }
 
+/* ================= BOOT SCREEN ================= */
+#boot-screen {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.boot-text {
+  text-align: center;
+  color: #00e5ff;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.boot-text p {
+  opacity: 0;
+  margin: 6px 0;
+  animation: reveal 0.6s forwards;
+}
+
+.boot-text p:nth-child(1) { animation-delay: 0.4s; }
+.boot-text p:nth-child(2) { animation-delay: 1.0s; }
+.boot-text p:nth-child(3) { animation-delay: 1.6s; }
+.boot-text p:nth-child(4) { animation-delay: 2.2s; }
+
+.boot-text .ok {
+  color: #00ff9c;
+}
+
+@keyframes reveal {
+  to { opacity: 1; }
+}
+
+/* ================= BACKGROUND CANVAS ================= */
 canvas {
   position: fixed;
   inset: 0;
   z-index: 0;
 }
 
-/* LAYOUT */
+/* ================= EYES BANNER ================= */
+.eye-banner {
+  display: flex;
+  justify-content: center;
+  padding: 44px 0 22px;
+  position: relative;
+  z-index: 2;
+}
+
+.eye-banner img {
+  width: min(420px, 85vw);
+  max-height: 110px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.eyelid {
+  position: absolute;
+  width: min(420px, 85vw);
+  height: 50%;
+  background: #050505;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: blink 7s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.eyelid.top { top: 44px; }
+.eyelid.bottom { bottom: 22px; }
+
+@keyframes blink {
+  0%, 92%, 100% { transform: translateX(-50%) scaleY(0); }
+  95% { transform: translateX(-50%) scaleY(1); }
+}
+
+/* ================= CONTENT ================= */
 .container {
   position: relative;
   z-index: 2;
-  min-height: 100vh;
+  min-height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
-  background: radial-gradient(circle, rgba(0,0,0,0.5), rgba(0,0,0,0.9));
+  padding: 12px 16px 28px;
 }
 
-/* =========================
-   REAL EYES (IMAGE BASED)
-   ========================= */
-
-.eye-container {
-  position: relative;
-  width: 260px;     /* adjust if needed */
-  height: 90px;
-  margin-bottom: 22px;
-  overflow: hidden;
-}
-
-.eye-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* eyelids */
-.eyelid {
-  position: absolute;
-  width: 100%;
-  height: 50%;
-  background: #050505;
-  left: 0;
-  animation: blink 6s infinite ease-in-out;
-  z-index: 2;
-}
-
-.eyelid.top { top: 0; transform-origin: top; }
-.eyelid.bottom { bottom: 0; transform-origin: bottom; }
-
-/* smooth cinematic blink */
-@keyframes blink {
-  0%, 92%, 100% { transform: scaleY(0); }
-  95% { transform: scaleY(1); }
-}
-
-/* TEXT */
 .name {
-  font-size: 28px;
+  font-size: clamp(22px, 4vw, 28px);
   font-weight: 600;
 }
 
 .role {
   font-size: 14px;
   color: #9e9e9e;
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
-/* SOCIAL ICONS */
+/* ================= SOCIAL ================= */
 .social a {
   margin: 6px;
   font-size: 18px;
@@ -89,40 +126,49 @@ canvas {
 
 .social a:hover { transform: scale(1.15); }
 
-.github { color: #ffffff; }
+.github { color: #fff; }
 .linkedin { color: #0A66C2; }
-.x { color: #ffffff; }
+.x { color: #fff; }
+.instagram { color: #E4405F; }
 .leetcode { color: #FFA116; }
 .mail { color: #EA4335; }
-.instagram { color: #E4405F; }
 
-/* TERMINAL */
+/* ================= TERMINAL ================= */
 .terminal {
-  margin-top: 22px;
-  width: 420px;
+  margin-top: 18px;
+  width: min(420px, 100%);
   background: #0a0a0a;
   border: 1px solid #1c1c1c;
-  padding: 12px;
+  padding: 14px;
   font-size: 12px;
   text-align: left;
 }
 
 #output {
-  min-height: 110px;
+  min-height: 90px;
   color: #bdbdbd;
 }
 
 #command {
   width: 100%;
+  margin-top: 6px;
   background: transparent;
   border: none;
   outline: none;
   color: #00e5ff;
 }
 
-/* FOOTER */
+/* ================= TRYHACKME ================= */
+.thm-badge {
+  margin-top: 22px;
+}
+
+
+
+/* ================= FOOTER ================= */
 .footer {
-  margin-top: 24px;
+  margin-top: 18px;
   font-size: 12px;
   color: #7a7a7a;
+  opacity: 0.75;
 }
